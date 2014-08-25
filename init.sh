@@ -2,36 +2,55 @@
 
 # init.sh: use immediately after cloning sbt-skeleton to remove the .git directory and perform other new-project setup tasks.
 
-if [ $# -lt 1 ]; then
-  echo "usage: ./init.sh <projectname>"
+if [ $# -lt 2 ]; then
+  echo "usage: ./init.sh <projectname> <orgname>"
   exit
 fi
 
 PROJECTNAME=$1
+ORGNAME=$2
 
-# params: filename
-function subname {
-  filename=$1
-  
-  echo "Setting $filename project name to '$PROJECTNAME'"
-  sed -i.bak "s/projectname/$PROJECTNAME/" $filename 
+# Substitute $replacement for $placeholder in the given file
+function substitute {
+  placeholder=$1
+  replacement=$2
+  filename=$3
+
+  echo "Setting $filename $placeholder to '$replacement'"
+  sed -i.bak "s/$placeholder/$replacement/" $filename 
 
   echo "Checking substitution worked"
-  subcount=`grep -c $PROJECTNAME $filename`
+  subcount=`grep -c $replacement $filename`
   if [ "$subcount" -gt "0" ]; then
     echo "Substitution fine; deleting .bak file"
     rm ${filename}.bak
   fi
 }
 
+# Substitute the project name into the given file
+# params: filename
+function subname {
+  filename=$1
+  substitute "projectname" $PROJECTNAME $filename
+}
+
+# Substitute the org name into the given file
+# params: filename
+function suborg {
+  filename=$1
+  substitute "orgname" $ORGNAME $filename
+}
+
 echo "Removing old .git directory"
-rm -rf .git/
+#rm -rf .git/
 
 #subname build.sbt
-subname README.md 
+#subname README.md 
+
+suborg build.sbt
 
 
 echo "Doing git init"
-git init
+#git init
 
 

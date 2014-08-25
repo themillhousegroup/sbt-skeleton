@@ -1,4 +1,4 @@
-name := "projectname
+name := "projectname"
 
 version := "0.1.0"
 
@@ -6,7 +6,7 @@ scalaVersion := "2.11.1"
 
 crossScalaVersions := Seq("2.11.1", "2.10.4")
 
-organization := "com.themillhousegroup"
+organization := "orgname"
 
 libraryDependencies ++= Seq(
     "com.google.gdata"      %   "core"                  % "1.47.1",
