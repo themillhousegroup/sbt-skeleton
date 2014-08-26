@@ -47,10 +47,10 @@ function builddirectories {
   withslashes=`echo $ORGNAME | tr . /`
   srcpath="src/main/scala/$withslashes/$PROJECTNAME"
   tstpath="src/test/scala/$withslashes/$PROJECTNAME/test"
-  mkdir -p $srcpath
-  echo "Created $srcpath" 
-  mkdir -p $tstpath
-  echo "Created $tstpath" 
+  mkdir -pv $srcpath
+  mkdir -pv src/main/resources 
+  mkdir -pv $tstpath
+  mkdir -pv src/test/resources 
 }
 
 echo "Removing old .git directory"
