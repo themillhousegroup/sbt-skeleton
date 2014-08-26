@@ -41,16 +41,29 @@ function suborg {
   substitute "orgname" $ORGNAME $filename
 }
 
-echo "Removing old .git directory"
-#rm -rf .git/
+# Construct the necessary directories under src
+#
+function builddirectories {
+  withslashes=`echo $ORGNAME | tr . /`
+  srcpath="src/main/scala/$withslashes/$PROJECTNAME"
+  tstpath="src/test/scala/$withslashes/$PROJECTNAME/test"
+  mkdir -p $srcpath
+  echo "Created $srcpath" 
+  mkdir -p $tstpath
+  echo "Created $tstpath" 
+}
 
-#subname build.sbt
-#subname README.md 
+echo "Removing old .git directory"
+rm -rf .git/
+
+subname build.sbt
+subname README.md 
 
 suborg build.sbt
+builddirectories 
 
 
 echo "Doing git init"
-#git init
+git init
 
 
