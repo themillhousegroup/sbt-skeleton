@@ -27,5 +27,5 @@ publishTo := Some("Cloudbees releases" at "https://repository-themillhousegroup.
 
 scalariformSettings
 
-
+net.virtualvoid.sbt.graph.Plugin.graphSettings
 
