@@ -60,8 +60,9 @@ subname build.sbt
 subname README.md 
 
 suborg build.sbt
-builddirectories 
+suborg README.md 
 
+builddirectories 
 
 echo "Doing git init"
 git init
