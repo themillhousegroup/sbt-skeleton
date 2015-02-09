@@ -19,10 +19,23 @@ Bring in the library by adding the following to your ```build.sbt```.
 
 ```
    libraryDependencies ++= Seq(
-     "orgname" %% "projectname" % "0.0.0"
+     "orgname" %% "projectname" % "0.1.0"
    )
 
 ```
 
 ### Usage
+
+Once you have __projectname__ added to your project, you can start using it like this:
+
+```
+foo
+bar
+baz 
+```
+
+
+### Still To-Do
+
+### Credits
 
