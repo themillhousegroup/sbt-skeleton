@@ -5,12 +5,10 @@ version := s"${sys.props.getOrElse("build.majorMinor", "0.1")}.${sys.props.getOr
 
 scalaVersion := "2.11.7"
 
-crossScalaVersions := Seq("2.11.7", "2.10.5")
-
 organization := "orgname"
 
 libraryDependencies ++= Seq(
-    "ch.qos.logback"              %   "logback-classic"       % "1.1.3",
+    "ch.qos.logback"              %   "logback-classic"       % "1.1.5",
     "com.typesafe.scala-logging"  %%  "scala-logging"         % "3.1.0",
     "org.mockito"                 %   "mockito-all"           % "1.10.19"       % "test",
     "org.specs2"                  %%  "specs2"                % "2.3.13"      % "test"
